@@ -6,10 +6,11 @@ import (
 
 func main() {
 	fmt.Println("hello")
-	var linkedList = LinkedList{}
+	var linkedList = LinkedList{head: Node{nextNode: nil}, tail: Node{nextNode: nil}}
 
 	linkedList.addWithoutPrev(5)
-
-	fmt.Println(linkedList.head.data)
+	linkedList.addBetween(7, 5)
+	linkedList.addBetween(8, 7)
+	fmt.Println(linkedList)
 
 }
