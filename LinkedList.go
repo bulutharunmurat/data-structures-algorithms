@@ -52,7 +52,7 @@ func (l LinkedList) String() string {
 		s = s + strconv.Itoa(p.data) + ", "
 		p = *(p.nextNode)
 	}
-	return s
+	return s + strconv.Itoa(p.data)
 }
 
 /*

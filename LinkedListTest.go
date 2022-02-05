@@ -5,7 +5,6 @@ import (
 )
 
 func main() {
-	fmt.Println("hello")
 	var linkedList = LinkedList{head: Node{nextNode: nil}, tail: Node{nextNode: nil}}
 
 	linkedList.addWithoutPrev(5)
