@@ -11,18 +11,28 @@ func main() {
 	// var pointerForInt *int, pointerForInt = &minutes
 	// *pointerForStr changing of value by pointers -> dereferencing or indirecting.
 
-	var node = Node{}
-
 	var linkedList = LinkedList{
-		head: &node,
-		tail: &node}
+		head: nil,
+		tail: nil}
 
-	linkedList.add(10, 0)    // add to empty linked list
-	linkedList.add(5, 10)    // add tail
-	linkedList.add(555, 44)  // add to head when prev is not found
-	linkedList.add(888, 555) // add to between two data
-
+	linkedList.add(2, 0)    // add to empty linked list
+	linkedList.add(4, 2)    // add tail
+	linkedList.add(1, 1000) // add to head when prev is not found
+	linkedList.add(3, 2)    // add to between two data
+	linkedList.add(5, 4)    // add to between two data
 	fmt.Println(linkedList)
+
+	linkedList.remove(1)
+	fmt.Println(linkedList)
+	linkedList.remove(5)
+	fmt.Println(linkedList)
+	linkedList.remove(3)
+	fmt.Println(linkedList)
+	linkedList.remove(2)
+	fmt.Println(linkedList)
+	linkedList.remove(4)
+	fmt.Println(linkedList)
+
 	fmt.Println("----------STACK----------")
 	var s = MyStack{top: -1, capacity: 5}
 

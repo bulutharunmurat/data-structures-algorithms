@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"strconv"
 )
 
@@ -12,13 +13,12 @@ type LinkedList struct {
 func (linkedList *LinkedList) add(data int, prevData int) {
 	prevNode := find(linkedList, prevData)
 	currentNode := Node{nextNode: nil, data: data}
-	nilNode := Node{}
 
-	if *linkedList.head == nilNode {
+	if linkedList.head == nil {
 		addToEmptyList(linkedList, &currentNode)
-	} else if prevNode == linkedList.tail { // prevNode == &linkedList.tail why that is false?
+	} else if prevNode == linkedList.tail {
 		addToTail(linkedList, &currentNode)
-	} else if *prevNode == nilNode {
+	} else if prevNode == nil {
 		addToHead(linkedList, &currentNode)
 	} else {
 		addBetween(linkedList, data, prevData)
@@ -30,14 +30,6 @@ func addBetween(linkedList *LinkedList, data int, prevData int) {
 	var currentNode = Node{nextNode: nil, data: data}
 	currentNode.nextNode = prevNode.nextNode
 	prevNode.nextNode = &currentNode
-}
-
-// TODO check if there is method overloading
-func (linkedList *LinkedList) addWithoutPrev(givenData int) {
-
-	var currentNode = Node{nextNode: nil, data: givenData}
-	addToEmptyList(linkedList, &currentNode)
-
 }
 
 func addToEmptyList(linkedList *LinkedList, node *Node) {
@@ -55,10 +47,63 @@ func addToHead(linkedList *LinkedList, node *Node) {
 	linkedList.head = node
 }
 
+func (linkedList *LinkedList) remove(data int) {
+
+	removeNode := find(linkedList, data)
+
+	if removeNode == nil {
+		fmt.Println("Node to remove cannot find in a list")
+		return
+	}
+
+	prevNode := findPrev(linkedList, data)
+
+	if removeNode == linkedList.head && removeNode == linkedList.tail {
+		removeToEmpty(linkedList)
+	} else if removeNode == linkedList.head {
+		removeHead(linkedList)
+	} else if removeNode == linkedList.tail {
+		removeTail(linkedList, prevNode)
+	} else {
+		removeBetween(linkedList, removeNode, prevNode)
+	}
+
+}
+
+func findPrev(linkedList *LinkedList, data int) *Node {
+
+	p := linkedList.head
+
+	for p != nil {
+		if p.nextNode != nil && p.nextNode.data == data {
+			return p
+		}
+		p = p.nextNode
+	}
+	return nil
+}
+
+func removeToEmpty(linkedlist *LinkedList) {
+	linkedlist.head = nil
+	linkedlist.tail = nil
+}
+
+func removeHead(linkedlist *LinkedList) {
+	linkedlist.head = linkedlist.head.nextNode
+}
+
+func removeTail(linkedlist *LinkedList, prevNode *Node) {
+	linkedlist.tail = prevNode
+	prevNode.nextNode = nil
+}
+
+func removeBetween(linkedlist *LinkedList, removeNode *Node, prevNode *Node) {
+	prevNode.nextNode = removeNode.nextNode
+}
+
 func find(linkedList *LinkedList, data int) *Node {
 
 	p := linkedList.head
-	nilNode := Node{}
 
 	for p != nil {
 		if p.data == data {
@@ -66,12 +111,14 @@ func find(linkedList *LinkedList, data int) *Node {
 		}
 		p = p.nextNode
 	}
-
-	return &nilNode
-
+	return nil
 }
 
 func (l LinkedList) String() string {
+
+	if l.head == nil && l.tail == nil {
+		return "[ ]"
+	}
 
 	p := l.head
 	var s = "[ "
