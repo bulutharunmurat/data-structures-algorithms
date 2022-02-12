@@ -5,16 +5,25 @@ import (
 )
 
 func main() {
+	// 0xc000010280 address
+	// to take an address for variable we use &var
+	// pointers are that store addresses
+	// var pointerForInt *int, pointerForInt = &minutes
+	// *pointerForStr changing of value by pointers -> dereferencing or indirecting.
+
+	var node = Node{}
 
 	var linkedList = LinkedList{
-		head: Node{nextNode: nil},
-		tail: Node{nextNode: nil}}
+		head: &node,
+		tail: &node}
 
-	linkedList.addWithoutPrev(5)
-	linkedList.addBetween(7, 5)
-	linkedList.addBetween(8, 7)
+	linkedList.add(10, 0)    // add to empty linked list
+	linkedList.add(5, 10)    // add tail
+	linkedList.add(555, 44)  // add to head when prev is not found
+	linkedList.add(888, 555) // add to between two data
+
 	fmt.Println(linkedList)
-
+	fmt.Println("----------STACK----------")
 	var s = MyStack{top: -1, capacity: 5}
 
 	s.push(5)
@@ -36,4 +45,5 @@ func main() {
 	dequeue := q.dequeue()
 	fmt.Println(dequeue)
 	fmt.Println(q)
+
 }
