@@ -1,6 +1,9 @@
 package main
 
-import "strconv"
+import (
+	"fmt"
+	"strconv"
+)
 
 type LinkedList struct {
 	head Node
@@ -29,9 +32,10 @@ func addToEmptyList(linkedList *LinkedList, node Node) {
 
 func findPrev(linkedList *LinkedList, data int) *Node {
 
-	p := &linkedList.head
+	p := &(linkedList.head)
 	nilNode := Node{}
-
+	fmt.Println(p)
+	fmt.Println(*p)
 	for *p != nilNode {
 		if p.data == data {
 			return p
