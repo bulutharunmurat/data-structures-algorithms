@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"strconv"
 )
 
@@ -17,7 +16,7 @@ func (stack *MyStack) push(data int) {
 		stack.top = stack.top + 1
 		stack.array = append(stack.array, data)
 	} else {
-		fmt.Println("Stack is full, so push is not executed for data: ", data)
+		panic("Stack is full, so push is not executed")
 	}
 
 }
@@ -39,12 +38,22 @@ func (stack *MyStack) isEmpty() bool {
 	return stack.top == -1
 }
 
+func (stack *MyStack) clear() {
+	stack.top = -1
+}
+
+func (stack *MyStack) peek() int {
+	return stack.array[stack.top]
+}
+
 func (stack MyStack) String() string {
 
-	s := " "
+	s := "[ "
 
 	for i := 0; i <= stack.top; i++ {
 		s = s + strconv.Itoa(stack.array[i]) + ", "
 	}
+
+	s = s + " ]"
 	return s
 }
