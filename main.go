@@ -56,4 +56,7 @@ func main() {
 	fmt.Println(dequeue)
 	fmt.Println(q)
 
+	tree := BinarySearchTree{root: nil}
+	tree.add(20)
+
 }
