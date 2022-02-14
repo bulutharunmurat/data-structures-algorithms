@@ -58,5 +58,12 @@ func main() {
 
 	tree := BinarySearchTree{root: nil}
 	tree.add(20)
+	tree.add(15)
+	tree.add(25)
+	tree.add(13)
+	tree.add(20)
+
+	a := 5
+	fmt.Println(a)
 
 }
