@@ -54,5 +54,18 @@ func (binarySearchTree *BinarySearchTree) printBF() {
 			queue = append(queue, treeNode.right)
 		}
 	}
+	fmt.Println()
+}
+
+func (binarySearchTree *BinarySearchTree) printInOrder() {
+	printInOrderRecursive(binarySearchTree, binarySearchTree.root)
+}
+
+func printInOrderRecursive(binarySearchTree *BinarySearchTree, treeNode *TreeNode) {
+	if treeNode != nil {
+		printInOrderRecursive(binarySearchTree, treeNode.left)
+		fmt.Print(treeNode.data, " ")
+		printInOrderRecursive(binarySearchTree, treeNode.right)
+	}
 
 }
