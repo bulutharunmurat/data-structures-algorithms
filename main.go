@@ -77,6 +77,9 @@ func main() {
 
 	data := tree.search(15).data
 	fmt.Println(data)
+
+	fmt.Println(tree.searchParent(10).data)
+
 	a := 5
 	fmt.Println(a)
 
