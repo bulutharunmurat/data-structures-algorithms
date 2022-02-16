@@ -97,6 +97,43 @@ func (binarySearchTree *BinarySearchTree) searchParent(data int) *TreeNode {
 	return nil
 }
 
+func (binarySearchTree *BinarySearchTree) remove(data int) *TreeNode {
+	rem := binarySearchTree.search(data)
+	parent := binarySearchTree.searchParent(data)
+
+	if rem == binarySearchTree.root {
+		binarySearchTree.root = rem.left
+		p := binarySearchTree.root
+		for p.right != nil {
+			p = p.right
+		}
+		p.right = rem.right
+	} else {
+		if rem == parent.left {
+			parent.left = rem.left
+			p := parent.left
+			if p != nil {
+				for p.right != nil {
+					p = p.right
+				}
+				p.right = rem.right
+			}
+
+		} else if rem == parent.right {
+			parent.right = rem.right
+			p := parent.right
+			if p != nil {
+				for p.left != nil {
+					p = p.left
+				}
+				p.left = rem.left
+			}
+
+		}
+	}
+	return rem
+}
+
 func (binarySearchTree *BinarySearchTree) printInOrder() {
 	fmt.Print("IN-ORDER TRAVERSE: ")
 	printInOrderRecursive(binarySearchTree, binarySearchTree.root)

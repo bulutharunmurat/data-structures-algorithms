@@ -80,6 +80,13 @@ func main() {
 
 	fmt.Println(tree.searchParent(10).data)
 
+	tree.remove(20)
+	tree.remove(13)
+	tree.remove(24)
+	tree.remove(17)
+	tree.remove(23)
+	tree.printBF()
+
 	a := 5
 	fmt.Println(a)
 
