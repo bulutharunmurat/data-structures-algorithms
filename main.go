@@ -61,7 +61,16 @@ func main() {
 	tree.add(15)
 	tree.add(25)
 	tree.add(13)
+	tree.add(17)
+	tree.add(23)
+	tree.add(10)
+	tree.add(14)
+	tree.add(19)
+	tree.add(22)
+	tree.add(24)
 	tree.add(20)
+
+	tree.printBF()
 
 	a := 5
 	fmt.Println(a)

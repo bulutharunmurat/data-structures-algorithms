@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 type BinarySearchTree struct {
 	root *TreeNode
 }
@@ -32,4 +34,25 @@ func (binarySearchTree *BinarySearchTree) add(data int) {
 			}
 		}
 	}
+}
+
+func (binarySearchTree *BinarySearchTree) printBF() {
+
+	var queue []*TreeNode //TODO can be implemented with our own data structure
+	queue = append(queue, binarySearchTree.root)
+	fmt.Print("BREATH-FIRST TRAVERSE: ")
+	for len(queue) != 0 {
+		treeNode := queue[0]
+		queue = queue[1:]
+
+		fmt.Print(treeNode.data, " ")
+
+		if treeNode.left != nil {
+			queue = append(queue, treeNode.left)
+		}
+		if treeNode.right != nil {
+			queue = append(queue, treeNode.right)
+		}
+	}
+
 }
