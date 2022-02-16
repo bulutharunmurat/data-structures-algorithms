@@ -57,6 +57,23 @@ func (binarySearchTree *BinarySearchTree) printBF() {
 	fmt.Println()
 }
 
+func (binarySearchTree *BinarySearchTree) search(data int) *TreeNode {
+
+	p := binarySearchTree.root
+
+	for p != nil {
+		if p.data == data {
+			return p
+		} else if p.data < data {
+			p = p.right
+		} else if p.data > data {
+			p = p.left
+		}
+	}
+
+	return nil
+}
+
 func (binarySearchTree *BinarySearchTree) printInOrder() {
 	fmt.Print("IN-ORDER TRAVERSE: ")
 	printInOrderRecursive(binarySearchTree, binarySearchTree.root)

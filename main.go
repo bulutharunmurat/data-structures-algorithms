@@ -75,6 +75,8 @@ func main() {
 	tree.printPreOrder()
 	tree.printPostOrder()
 
+	data := tree.search(15).data
+	fmt.Println(data)
 	a := 5
 	fmt.Println(a)
 
