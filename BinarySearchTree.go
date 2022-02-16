@@ -84,3 +84,17 @@ func printPreOrderRecursive(binarySearchTree *BinarySearchTree, treeNode *TreeNo
 		printPreOrderRecursive(binarySearchTree, treeNode.right)
 	}
 }
+
+func (binarySearchTree *BinarySearchTree) printPostOrder() {
+	fmt.Print("POST-ORDER TRAVERSE: ")
+	printPostOrderRecursive(binarySearchTree, binarySearchTree.root)
+	fmt.Println()
+}
+
+func printPostOrderRecursive(binarySearchTree *BinarySearchTree, treeNode *TreeNode) {
+	if treeNode != nil {
+		printPostOrderRecursive(binarySearchTree, treeNode.left)
+		printPostOrderRecursive(binarySearchTree, treeNode.right)
+		fmt.Print(treeNode.data, " ")
+	}
+}
