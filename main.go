@@ -72,6 +72,7 @@ func main() {
 
 	tree.printBF()
 	tree.printInOrder()
+	tree.printPreOrder()
 
 	a := 5
 	fmt.Println(a)

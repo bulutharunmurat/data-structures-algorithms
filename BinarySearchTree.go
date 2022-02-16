@@ -58,7 +58,9 @@ func (binarySearchTree *BinarySearchTree) printBF() {
 }
 
 func (binarySearchTree *BinarySearchTree) printInOrder() {
+	fmt.Print("IN-ORDER TRAVERSE: ")
 	printInOrderRecursive(binarySearchTree, binarySearchTree.root)
+	fmt.Println()
 }
 
 func printInOrderRecursive(binarySearchTree *BinarySearchTree, treeNode *TreeNode) {
@@ -67,5 +69,18 @@ func printInOrderRecursive(binarySearchTree *BinarySearchTree, treeNode *TreeNod
 		fmt.Print(treeNode.data, " ")
 		printInOrderRecursive(binarySearchTree, treeNode.right)
 	}
+}
 
+func (binarySearchTree *BinarySearchTree) printPreOrder() {
+	fmt.Print("PRE-ORDER TRAVERSE: ")
+	printPreOrderRecursive(binarySearchTree, binarySearchTree.root)
+	fmt.Println()
+}
+
+func printPreOrderRecursive(binarySearchTree *BinarySearchTree, treeNode *TreeNode) {
+	if treeNode != nil {
+		fmt.Print(treeNode.data, " ")
+		printPreOrderRecursive(binarySearchTree, treeNode.left)
+		printPreOrderRecursive(binarySearchTree, treeNode.right)
+	}
 }
