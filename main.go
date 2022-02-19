@@ -98,6 +98,26 @@ func main() {
 	maxHeap.add(11)
 	maxHeap.add(9)
 
+	fmt.Println(maxHeap.array)
+	maxHeap.remove(15)
+	fmt.Println(maxHeap.array)
+	maxHeap.remove(5)
+	fmt.Println(maxHeap.array)
+	maxHeap.remove(11)
+	fmt.Println(maxHeap.array)
+	maxHeap.remove(4)
+	fmt.Println(maxHeap.array)
+	maxHeap.remove(10)
+	fmt.Println(maxHeap.array)
+	maxHeap.remove(17)
+	fmt.Println(maxHeap.array)
+	maxHeap.remove(9)
+	fmt.Println(maxHeap.array)
+	maxHeap.remove(3)
+	fmt.Println(maxHeap.array)
+	maxHeap.remove(12)
+	fmt.Println(maxHeap.array)
+
 	a := 5
 	fmt.Println(a)
 
