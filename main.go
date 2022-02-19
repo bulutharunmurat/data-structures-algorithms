@@ -87,6 +87,17 @@ func main() {
 	tree.remove(23)
 	tree.printBF()
 
+	maxHeap := Heap{}
+	maxHeap.add(15)
+	maxHeap.add(10)
+	maxHeap.add(12)
+	maxHeap.add(5)
+	maxHeap.add(4)
+	maxHeap.add(3)
+	maxHeap.add(17)
+	maxHeap.add(11)
+	maxHeap.add(9)
+
 	a := 5
 	fmt.Println(a)
 
