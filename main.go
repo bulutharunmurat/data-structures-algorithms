@@ -121,4 +121,9 @@ func main() {
 	a := 5
 	fmt.Println(a)
 
+	unSortedList := []int{12, 4, 5, 7, 8, 234, 1, 8, 0}
+	fmt.Println(unSortedList)
+	sortedList := selectionSort(unSortedList)
+	fmt.Println(sortedList)
+
 }
