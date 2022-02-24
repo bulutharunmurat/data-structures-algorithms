@@ -126,4 +126,9 @@ func main() {
 	sortedList := selectionSort(unSortedList)
 	fmt.Println(sortedList)
 
+	fmt.Println("INSERTION SORT:")
+	unSortedList2 := []int{12, 4, 5, 7, 8, 234, 1, 8, 0}
+	fmt.Println(unSortedList2)
+	sortedList2 := insertionSort(unSortedList)
+	fmt.Println(sortedList2)
 }
