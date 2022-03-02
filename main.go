@@ -131,4 +131,10 @@ func main() {
 	fmt.Println(unSortedList2)
 	sortedList2 := insertionSort(unSortedList)
 	fmt.Println(sortedList2)
+
+	fmt.Println("BUBBLE SORT:")
+	bubbleBefore := []int{12, 4, 5, 7, 8, 234, 1, 8, 0}
+	fmt.Println(bubbleBefore)
+	bubbleAfter := bubbleSort(bubbleBefore)
+	fmt.Println(bubbleAfter)
 }
