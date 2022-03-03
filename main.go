@@ -87,6 +87,7 @@ func main() {
 	tree.remove(23)
 	tree.printBF()
 
+	fmt.Println("--------------- MAX HEAP ---------------")
 	maxHeap := Heap{}
 	maxHeap.add(15)
 	maxHeap.add(10)
@@ -117,7 +118,7 @@ func main() {
 	fmt.Println(maxHeap.array)
 	maxHeap.remove(12)
 	fmt.Println(maxHeap.array)
-
+	fmt.Println("--------------- MAX HEAP ---------------")
 	a := 5
 	fmt.Println(a)
 
@@ -137,4 +138,10 @@ func main() {
 	fmt.Println(bubbleBefore)
 	bubbleAfter := bubbleSort(bubbleBefore)
 	fmt.Println(bubbleAfter)
+
+	fmt.Println("HEAP SORT:")
+	heapBefore := []int{12, 4, 5, 7, 8, 234, 1, 8, 0}
+	fmt.Println(heapBefore)
+	heapAfter := heapSort(heapBefore)
+	fmt.Println(heapAfter)
 }

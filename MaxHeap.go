@@ -41,18 +41,22 @@ func (heap *Heap) remove(data int) {
 	swap(heap, remIndex, lastIndex)
 	heap.array = heap.array[:lastIndex]
 
-	for remIndex < lastIndex && (remIndex*2)+1 < lastIndex {
-		leftChild := (remIndex * 2) + 1
-		rightChild := (remIndex * 2) + 2
+	heap.moveDown(remIndex, lastIndex)
+}
+
+func (heap *Heap) moveDown(fromIndex int, lastIndex int) {
+	for fromIndex < lastIndex && (fromIndex*2)+1 < lastIndex {
+		leftChild := (fromIndex * 2) + 1
+		rightChild := (fromIndex * 2) + 2
 		len := len(heap.array)
-		if (leftChild < len && heap.array[remIndex] < heap.array[leftChild]) ||
-			(rightChild < len && heap.array[remIndex] < heap.array[rightChild]) {
+		if (leftChild < len && heap.array[fromIndex] < heap.array[leftChild]) ||
+			(rightChild < len && heap.array[fromIndex] < heap.array[rightChild]) {
 			if rightChild < len && heap.array[leftChild] < heap.array[rightChild] {
-				swap(heap, remIndex, rightChild)
-				remIndex = rightChild
+				swap(heap, fromIndex, rightChild)
+				fromIndex = rightChild
 			} else {
-				swap(heap, remIndex, leftChild)
-				remIndex = leftChild
+				swap(heap, fromIndex, leftChild)
+				fromIndex = leftChild
 			}
 		}
 	}
@@ -70,4 +74,12 @@ func findIndex(heap *Heap, data int) (int, error) {
 
 func findParentIndex(curIndex int) int {
 	return (curIndex - 1) / 2
+}
+
+func (heap *Heap) heapify(arr []int) {
+
+	// O(n) complexity
+	for _, value := range arr {
+		heap.add(value)
+	}
 }
