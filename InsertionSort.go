@@ -7,7 +7,7 @@ func insertionSort(arr []int) []int {
 	for i := 0; i < len(arr); i++ {
 
 		tempIndex := i
-		for tempIndex > 1 && arr[tempIndex-1] > arr[tempIndex] {
+		for tempIndex >= 1 && arr[tempIndex-1] > arr[tempIndex] {
 
 			smaller := arr[tempIndex]
 

@@ -130,7 +130,7 @@ func main() {
 	fmt.Println("INSERTION SORT:")
 	unSortedList2 := []int{12, 4, 5, 7, 8, 234, 1, 8, 0}
 	fmt.Println(unSortedList2)
-	sortedList2 := insertionSort(unSortedList)
+	sortedList2 := insertionSort(unSortedList2)
 	fmt.Println(sortedList2)
 
 	fmt.Println("BUBBLE SORT:")

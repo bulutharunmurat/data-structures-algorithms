@@ -10,6 +10,7 @@ func selectionSort(arr []int) []int {
 			}
 		}
 
+		// swap
 		minValue := arr[minIndex]
 		arr[minIndex] = arr[i]
 		arr[i] = minValue
