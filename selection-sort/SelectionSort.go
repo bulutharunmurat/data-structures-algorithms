@@ -1,4 +1,6 @@
-package main
+package selection_sort
+
+import "fmt"
 
 func selectionSort(arr []int) []int {
 
@@ -17,4 +19,11 @@ func selectionSort(arr []int) []int {
 
 	}
 	return arr
+}
+
+func SelectionSortTest() {
+	unSortedList := []int{12, 4, 5, 7, 8, 234, 1, 8, 0}
+	fmt.Println(unSortedList)
+	sortedList := selectionSort(unSortedList)
+	fmt.Println(sortedList)
 }

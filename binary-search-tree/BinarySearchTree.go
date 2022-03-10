@@ -1,6 +1,8 @@
-package main
+package binary_search_tree
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type BinarySearchTree struct {
 	root *TreeNode
@@ -174,4 +176,37 @@ func printPostOrderRecursive(binarySearchTree *BinarySearchTree, treeNode *TreeN
 		printPostOrderRecursive(binarySearchTree, treeNode.right)
 		fmt.Print(treeNode.data, " ")
 	}
+}
+
+func BinarySearchTreeTest() {
+	tree := BinarySearchTree{root: nil}
+	tree.add(20)
+	tree.add(15)
+	tree.add(25)
+	tree.add(13)
+	tree.add(17)
+	tree.add(23)
+	tree.add(10)
+	tree.add(14)
+	tree.add(19)
+	tree.add(22)
+	tree.add(24)
+	tree.add(20)
+
+	tree.printBF()
+	tree.printInOrder()
+	tree.printPreOrder()
+	tree.printPostOrder()
+
+	data := tree.search(15).data
+	fmt.Println(data)
+
+	fmt.Println(tree.searchParent(10).data)
+
+	tree.remove(20)
+	tree.remove(13)
+	tree.remove(24)
+	tree.remove(17)
+	tree.remove(23)
+	tree.printBF()
 }

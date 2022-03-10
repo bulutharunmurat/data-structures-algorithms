@@ -1,4 +1,4 @@
-package main
+package linked_list
 
 import (
 	"fmt"
@@ -128,4 +128,28 @@ func (l LinkedList) String() string {
 		p = p.nextNode
 	}
 	return s + strconv.Itoa(p.data) + " ]"
+}
+
+func LinkedListTest() {
+	var linkedList = LinkedList{
+		head: nil,
+		tail: nil}
+
+	linkedList.add(2, 0)    // add to empty linked list
+	linkedList.add(4, 2)    // add tail
+	linkedList.add(1, 1000) // add to head when prev is not found
+	linkedList.add(3, 2)    // add to between two data
+	linkedList.add(5, 4)    // add to between two data
+	fmt.Println(linkedList)
+
+	linkedList.remove(1)
+	fmt.Println(linkedList)
+	linkedList.remove(5)
+	fmt.Println(linkedList)
+	linkedList.remove(3)
+	fmt.Println(linkedList)
+	linkedList.remove(2)
+	fmt.Println(linkedList)
+	linkedList.remove(4)
+	fmt.Println(linkedList)
 }

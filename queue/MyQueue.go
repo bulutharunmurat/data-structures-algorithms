@@ -1,6 +1,9 @@
-package main
+package queue
 
-import "strconv"
+import (
+	"fmt"
+	"strconv"
+)
 
 type MyQueue struct {
 	front    int
@@ -52,4 +55,17 @@ func (queue MyQueue) String() string {
 
 	s = s + " ]"
 	return s
+}
+
+func QueueTest() {
+	fmt.Println("----------QUEUE----------")
+	q := MyQueue{capacity: 5, front: 0, rear: -1, count: 0}
+	q.enqueue(4)
+	q.enqueue(5)
+	q.enqueue(6)
+	q.enqueue(7)
+	q.enqueue(8)
+	dequeue := q.dequeue()
+	fmt.Println(dequeue)
+	fmt.Println(q)
 }

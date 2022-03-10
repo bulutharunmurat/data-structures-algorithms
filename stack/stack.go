@@ -1,6 +1,7 @@
-package main
+package stack
 
 import (
+	"fmt"
 	"strconv"
 )
 
@@ -56,4 +57,18 @@ func (stack MyStack) String() string {
 
 	s = s + " ]"
 	return s
+}
+
+func StackTest() {
+	fmt.Println("----------STACK----------")
+	var s = MyStack{top: -1, capacity: 5}
+
+	s.push(5)
+	s.push(6)
+	s.push(7)
+	s.push(8)
+	s.push(9)
+	peek := s.peek()
+	fmt.Println("Peeked: ", peek)
+	fmt.Println(s)
 }

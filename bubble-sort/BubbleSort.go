@@ -1,4 +1,6 @@
-package main
+package bubble_sort
+
+import "fmt"
 
 // BEST CASE n and WORST CASE = n(n+1)/2
 
@@ -23,4 +25,12 @@ func bubbleSort(arr []int) []int {
 	}
 
 	return arr
+}
+
+func BubbleSortTest() {
+	fmt.Println("BUBBLE SORT:")
+	bubbleBefore := []int{12, 4, 5, 7, 8, 234, 1, 8, 0}
+	fmt.Println(bubbleBefore)
+	bubbleAfter := bubbleSort(bubbleBefore)
+	fmt.Println(bubbleAfter)
 }
