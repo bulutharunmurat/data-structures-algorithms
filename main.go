@@ -7,6 +7,7 @@ import (
 	"data-structures-algorithms/heap-sort"
 	insertion_sort "data-structures-algorithms/insertion-sort"
 	linked_list "data-structures-algorithms/linked-list"
+	merge_sort "data-structures-algorithms/merge-sort"
 	"data-structures-algorithms/queue"
 	selection_sort "data-structures-algorithms/selection-sort"
 	"data-structures-algorithms/stack"
@@ -27,4 +28,5 @@ func main() {
 	bubble_sort.BubbleSortTest()
 	insertion_sort.InsertionSortTest()
 	heap_sort.HeapSortTest()
+	merge_sort.MergeSortTest()
 }
