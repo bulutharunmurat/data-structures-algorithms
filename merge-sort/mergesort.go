@@ -2,6 +2,7 @@ package merge_sort
 
 import "fmt"
 
+// BEST CASE (n)log(n) and WORST CASE = (n)log(n)
 func mergeSort(arr []int) []int {
 	var right, left, result []int
 
@@ -28,24 +29,20 @@ func merge(left []int, right []int) []int {
 	for curLeft < len(left) && curRight < len(right) {
 		if left[curLeft] < right[curRight] {
 			result = append(result, left[curLeft])
-			//left = left[curLeft+1:]
 			curLeft++
 		} else {
 			result = append(result, right[curRight])
-			//right = right[curRight+1:]
 			curRight++
 		}
 	}
 
 	for curLeft < len(left) {
 		result = append(result, left[curLeft])
-		//left = left[curLeft+1:]
 		curLeft++
 	}
 
 	for curRight < len(right) {
 		result = append(result, right[curRight])
-		//right = right[curRight+1:]
 		curRight++
 	}
 
